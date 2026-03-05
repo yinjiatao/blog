@@ -1,0 +1,129 @@
+{
+  "siteTitle": "Tao",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "subscribe": "Subscribe",
+    "categories": "Categories",
+    "articles": "Articles"
+  },
+  "hero": {
+    "subtitle": "Exploring thoughts and practices on self-improvement, super individuals, one-person companies, and product growth. Weekly updates, recording the journey.",
+    "ctaPrimary": "Browse Articles",
+    "ctaSecondary": "About Me",
+    "scroll": "SCROLL",
+    "est": "EST. 2023"
+  },
+  "verticalText": {
+    "chinese": "尹家韬",
+    "english": "TAO"
+  },
+  "featured": {
+    "label": "FEATURED",
+    "title": "Featured Articles",
+    "viewAll": "View All"
+  },
+  "categories": {
+    "label": "CATEGORIES",
+    "title": "Categories",
+    "subtitle": "Explore content across different topics",
+    "articles": "articles"
+  },
+  "moreArticles": {
+    "label": "MORE ARTICLES",
+    "title": "More Articles"
+  },
+  "newsletter": {
+    "label": "NEWSLETTER",
+    "title": "Subscribe to My Newsletter",
+    "description": "One email per week with my latest articles, thoughts, and discoveries. No spam, unsubscribe anytime.",
+    "placeholder": "your@email.com",
+    "button": "Subscribe",
+    "success": "Subscribed! Thank you for joining.",
+    "error": "Subscription failed, please try again later.",
+    "invalidEmail": "Please enter a valid email address."
+  },
+  "footer": {
+    "copyright": "COPYRIGHT © 2026 JIATAO YIN. ALL RIGHTS RESERVED."
+  },
+  "article": {
+    "back": "Back to Articles",
+    "readTime": "{count} min read",
+    "tags": "Tags",
+    "prev": "Previous",
+    "next": "Next",
+    "copy": "Copy Full Text",
+    "copied": "Copied!",
+    "copyError": "Copy failed",
+    "notFound": "Article not found"
+  },
+  "about": {
+    "title": "About Me",
+    "role": "Creator, Writer, Lifelong Learner",
+    "bio1": "Hi, I'm JiaTao Yin (尹家韬). An independent creator focused on self-improvement, one-person business, and product growth.",
+    "bio2": "I believe everyone has the potential to become a super individual. Through continuous learning, practice, and sharing, we can break through the boundaries of traditional careers and create our own lifestyle.",
+    "whatIDo": "What I Do",
+    "content": {
+      "title": "Content Creation",
+      "desc": "Publish in-depth articles weekly, sharing thoughts on self-improvement, one-person business, and product growth"
+    },
+    "product": {
+      "title": "Product Development",
+      "desc": "Build tools and templates to help creators improve efficiency"
+    },
+    "consulting": {
+      "title": "Consulting",
+      "desc": "Provide one-on-one consulting for those building a personal brand or one-person business"
+    },
+    "newsletterDesc": {
+      "title": "Newsletter",
+      "desc": "Send exclusive weekly content to build deeper connections with readers"
+    },
+    "timeline": {
+      "title": "Timeline",
+      "2023": {
+        "title": "Started Independent Creation",
+        "desc": "Left full-time work and began exploring the possibilities of a one-person business"
+      },
+      "2024": {
+        "title": "Built Personal Brand",
+        "desc": "Consistently output content and built a stable reader base"
+      },
+      "2025": {
+        "title": "Product Transformation",
+        "desc": "Shifted from services to products, achieving scalable income"
+      },
+      "2026": {
+        "title": "Continuously Evolving",
+        "desc": "Exploring more possibilities and helping more people achieve independent creation"
+      }
+    },
+    "contact": {
+      "title": "Contact Me",
+      "desc": "If you have any questions, suggestions, or just want to say hello, feel free to reach out. I'll get back to you as soon as possible."
+    }
+  },
+  "categoryNames": {
+    "self-improvement": "Self-Improvement",
+    "super-individual": "Super Individual",
+    "one-person-company": "One-Person Company",
+    "viral-growth": "Viral Growth",
+    "tools": "Tools & Practice"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "zh": "中文",
+    "en": "English"
+  },
+  "noArticles": "No articles in this category",
+  "wechat": {
+    "title": "Tao",
+    "role": "Creator / Writer / Thinker",
+    "desc": "Exploring self-improvement, super individuals, and one-person companies",
+    "officialAccount": "Official Account",
+    "officialAccountQR": "Official Account QR",
+    "wechatLabel": "WeChat",
+    "wechatQR": "WeChat QR",
+    "scanNote": "Please state your purpose when adding on WeChat"
+  }
+}
