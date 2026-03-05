@@ -108,6 +108,7 @@
   },
   "language": {
     "switch": "切换语言",
+    "description": "选择您偏好的网站语言",
     "zh": "中文",
     "en": "English"
   },

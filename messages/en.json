@@ -112,6 +112,7 @@
   },
   "language": {
     "switch": "Switch Language",
+    "description": "Select your preferred language for the site",
     "zh": "中文",
     "en": "English"
   },
