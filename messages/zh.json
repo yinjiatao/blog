@@ -45,6 +45,7 @@
   "article": {
     "back": "返回文章列表",
     "readTime": "{count} 分钟阅读",
+    "categories": "分类",
     "tags": "标签",
     "prev": "上一篇",
     "next": "下一篇",

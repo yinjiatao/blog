@@ -47,7 +47,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     <div className="bg-background min-h-screen">
       <SidebarWrapper categories={categories} />
 
-      <main className="min-h-screen pt-16 lg:ml-[200px] lg:pt-0">
+      <main className="min-h-screen pt-16 lg:ml-48 lg:pt-0">
         <div className="mx-auto max-w-3xl px-6 py-12 lg:px-16 lg:py-16">
           <article className="animate-fade-in-up">
             <Link
@@ -60,10 +60,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
             <header className="border-border mb-10 border-b pb-8">
               <div className="mb-4 flex flex-wrap items-center gap-3">
-                <span className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
-                  {t(`categoryNames.${post.category}`)}
-                </span>
-                <span className="text-muted text-xs">|</span>
                 <span className="text-muted-foreground text-xs">{formattedDate}</span>
                 <span className="text-muted text-xs">|</span>
                 <span className="text-muted-foreground text-xs">{t('article.readTime', { count: post.readTime })}</span>
@@ -75,7 +71,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground text-xs">{t('article.tags')}:</span>
+                  <span className="text-muted-foreground text-xs">{t('article.categories')}:</span>
                   <span className="bg-muted text-muted-foreground rounded-sm px-2 py-1 text-xs">
                     {t(`categoryNames.${post.category}`)}
                   </span>

@@ -49,6 +49,7 @@
   "article": {
     "back": "Back to Articles",
     "readTime": "{count} min read",
+    "categories": "Categories",
     "tags": "Tags",
     "prev": "Previous",
     "next": "Next",
