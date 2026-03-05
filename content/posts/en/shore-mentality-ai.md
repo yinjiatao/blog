@@ -2,7 +2,7 @@
 title: 'You Have at Most 12 Months to Adapt to the AI Era'
 excerpt: "Most people think they're waiting for the right moment. They're not. They're waiting for someone else to take the risk of that first step for them. These are two completely different things."
 date: '2026-03-05'
-category: 'super-individual'
+category: 'self-improvement'
 readTime: 12
 slug: 'shore-mentality-ai'
 ---

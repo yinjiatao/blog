@@ -2,7 +2,7 @@
 title: '你最多还有 12 个月的时间去适应 AI 时代'
 excerpt: '大多数人以为自己在等待合适的时机。他们不是。他们在等别人替自己承担第一步的风险。这是两件完全不同的事。'
 date: '2026-03-05'
-category: 'super-individual'
+category: 'self-improvement'
 readTime: 12
 slug: 'shore-mentality-ai'
 ---
