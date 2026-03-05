@@ -27,7 +27,7 @@ export function CopyButton({ post }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-1.5 rounded-sm px-2 py-1 text-xs text-gray-500 ring ring-gray-200 transition-all hover:text-gray-700 hover:ring-gray-400"
+      className="text-muted-foreground ring-border hover:text-foreground hover:ring-ring inline-flex items-center gap-1.5 rounded-sm px-2 py-1 text-xs ring transition-all"
     >
       {copied ? <Check size={12} /> : <Copy size={12} />}
       {copied ? t('copied') : t('copy')}

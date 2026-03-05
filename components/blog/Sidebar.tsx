@@ -8,7 +8,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react'
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
 import {
   Dialog,
   DialogContent,
@@ -18,29 +26,22 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 
-
 interface LangOptionsProps {
   languages: { code: string; label: string; flag: string }[]
   locale: string
   onSwitch: (code: string) => void
 }
 
-function LangOptions({ languages, locale, onSwitch }: LangOptionsProps) {
+function LangDropdownItems({ languages, locale, onSwitch }: LangOptionsProps) {
   return (
-    <div className="space-y-1 p-4">
+    <>
       {languages.map((lang) => (
-        <button
-          key={lang.code}
-          onClick={() => onSwitch(lang.code)}
-          className={`flex w-full items-center gap-3 rounded-sm px-4 py-3 text-sm transition-colors hover:bg-gray-50 ${
-            locale === lang.code ? 'text-foreground bg-gray-50 font-medium' : 'text-muted-foreground'
-          }`}
-        >
+        <DropdownMenuItem key={lang.code} onClick={() => onSwitch(lang.code)} className="cursor-pointer">
           <span>{lang.flag}</span>
-          {lang.label}
-        </button>
+          <span className={locale === lang.code ? 'font-medium' : ''}>{lang.label}</span>
+        </DropdownMenuItem>
       ))}
-    </div>
+    </>
   )
 }
 
@@ -85,7 +86,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
   return (
     <>
       {/* Mobile top header */}
-      <header className="fixed top-0 right-0 left-0 z-40 border-b border-gray-100 bg-white lg:hidden">
+      <header className="border-border bg-background fixed top-0 right-0 left-0 z-40 border-b lg:hidden">
         <div className="flex items-center justify-between px-6 py-4">
           <Link href={`/${locale}`} className="text-foreground font-serif text-xl font-bold">
             {t('siteTitle')}
@@ -105,7 +106,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
 
       {/* Sidebar panel */}
       <aside
-        className={`fixed top-0 right-0 z-50 flex h-screen w-[200px] flex-col border-l border-gray-200 bg-white transition-transform duration-300 ease-in-out lg:right-auto lg:left-0 lg:translate-x-0 lg:border-r lg:border-l-0 ${isOpen ? 'translate-x-0' : 'translate-x-full'} `}
+        className={`border-border bg-background fixed top-0 right-0 z-50 flex h-screen w-50 flex-col border-l transition-transform duration-300 ease-in-out lg:right-auto lg:left-0 lg:translate-x-0 lg:border-r lg:border-l-0 ${isOpen ? 'translate-x-0' : 'translate-x-full'} `}
       >
         {/* Site title */}
         <div className="p-6">
@@ -173,7 +174,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
                         height={1280}
                         src="/wechat-qrcode.jpg"
                         alt={t('wechat.wechatQR')}
-                        className="mb-2 aspect-square w-full rounded-sm border border-gray-200 object-cover"
+                        className="border-border mb-2 aspect-square w-full rounded-sm border object-cover"
                       />
                       <p className="text-muted-foreground text-xs">{t('wechat.wechatLabel')}</p>
                     </div>
@@ -183,7 +184,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
                         height={1280}
                         src="/wechat-official-qrcode.jpg"
                         alt={t('wechat.officialAccountQR')}
-                        className="mb-2 aspect-square w-full rounded-sm border border-gray-200 object-cover"
+                        className="border-border mb-2 aspect-square w-full rounded-sm border object-cover"
                       />
                       <p className="text-muted-foreground text-xs">{t('wechat.officialAccount')}</p>
                     </div>
@@ -197,7 +198,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
           </div>
         </div>
 
-        <div className="mx-6 border-t border-gray-100" />
+        <div className="border-border mx-6 border-t" />
 
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-6 py-4">
@@ -227,7 +228,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
               </button>
 
               {showCategories && (
-                <ul className="mt-1 ml-3 space-y-1 border-l border-gray-200">
+                <ul className="border-border mt-1 ml-3 space-y-1 border-l">
                   {categories.map((category) => {
                     const href = `/${locale}/category/${encodeURIComponent(category)}`
                     const isActive = pathname === href
@@ -238,7 +239,7 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
                           onClick={onToggle}
                           className={`hover:text-foreground block py-1.5 pl-3 text-xs transition-colors ${
                             isActive
-                              ? 'text-foreground -ml-[1px] border-l-2 border-gray-900 font-medium'
+                              ? 'text-foreground border-foreground -ml-px border-l-2 font-medium'
                               : 'text-muted-foreground'
                           }`}
                         >
@@ -254,26 +255,30 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
         </nav>
 
         {/* Language switcher — bottom */}
-        <div className="border-t border-gray-100 p-6">
-          {/* Desktop: hover dropdown opens upward */}
-          <div className="group relative hidden lg:block">
-            <button
-              className="text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm transition-colors"
-              aria-label={t('language.switch')}
-            >
-              <span>{currentLang?.flag}</span>
-              <span className="text-xs">{currentLang?.label}</span>
-            </button>
-            <div className="invisible absolute bottom-full left-0 z-50 mb-1 w-32 rounded-sm border border-gray-200 bg-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
-              <LangOptions languages={languages} locale={locale} onSwitch={handleSwitchLocale} />
-            </div>
+        <div className="border-border border-t">
+          {/* Desktop: shadcn DropdownMenu */}
+          <div className="hidden lg:block">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className="text-muted-foreground hover:text-foreground hover:bg-accent flex w-full items-center gap-2 px-6 py-4 text-sm transition-colors"
+                  aria-label={t('language.switch')}
+                >
+                  <span>{currentLang?.flag}</span>
+                  <span className="text-xs">{currentLang?.label}</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <LangDropdownItems languages={languages} locale={locale} onSwitch={handleSwitchLocale} />
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile: shadcn Drawer */}
           <Drawer>
             <DrawerTrigger asChild>
               <button
-                className="text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm transition-colors lg:hidden"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-2 px-6 py-4 text-sm transition-colors lg:hidden"
                 aria-label={t('language.switch')}
               >
                 <span>{currentLang?.flag}</span>
@@ -283,8 +288,22 @@ export function Sidebar({ isOpen, onToggle, categories }: SidebarProps) {
             <DrawerContent>
               <DrawerHeader>
                 <DrawerTitle>{t('language.switch')}</DrawerTitle>
+                <DrawerDescription>{t('language.description')}</DrawerDescription>
               </DrawerHeader>
-              <LangOptions languages={languages} locale={locale} onSwitch={handleSwitchLocale} />
+              <div className="space-y-1 p-4">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => handleSwitchLocale(lang.code)}
+                    className={`hover:bg-muted flex w-full items-center gap-3 rounded-sm px-4 py-3 text-sm transition-colors ${
+                      locale === lang.code ? 'text-foreground bg-muted font-medium' : 'text-muted-foreground'
+                    }`}
+                  >
+                    <span>{lang.flag}</span>
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
             </DrawerContent>
           </Drawer>
         </div>

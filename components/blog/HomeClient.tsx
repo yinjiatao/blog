@@ -169,9 +169,9 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
   return (
     <div className="min-h-screen">
       {/* Fixed Header */}
-      <header className="fixed top-0 right-0 left-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+      <header className="border-border bg-background/80 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href={`/${locale}`} className="font-serif text-xl font-bold text-gray-900">
+          <Link href={`/${locale}`} className="text-foreground font-serif text-xl font-bold">
             {t('siteTitle')}
           </Link>
           <LanguageSwitcher />
@@ -180,7 +180,7 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
 
       {/* Hero Section */}
       <section ref={heroRef} className="relative flex h-screen items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-b from-white via-gray-50/50 to-white" />
+        <div className="from-background via-muted/50 to-background absolute inset-0 bg-linear-to-b" />
 
         {/* Vertical Text - Left (cycling titles) */}
         <div
@@ -191,13 +191,13 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
             {currentTitle.zh.split('').map((char, i) => (
               <span
                 key={`zh-${titleIndex}-${i}`}
-                className="vchar vchar-zh writing-vertical font-serif text-sm text-gray-900 lg:text-4xl"
+                className="vchar vchar-zh writing-vertical text-foreground font-serif text-sm lg:text-4xl"
               >
                 {char}
               </span>
             ))}
           </div>
-          <div className="my-2 h-8 w-px bg-gray-300 lg:h-12" />
+          <div className="bg-border my-2 h-8 w-px lg:h-12" />
           <div ref={enCharsRef} className="flex flex-col items-center gap-1">
             {currentTitle.en.split('').map((char, i) => (
               <span
@@ -213,14 +213,14 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
         {/* Center Content */}
         <div className="relative z-10 mx-auto max-w-3xl px-8 text-center">
           <div className="mb-8 flex items-center justify-center gap-4">
-            <div className="h-px w-12 bg-gray-300" />
+            <div className="bg-border h-px w-12" />
             <span className="text-muted-foreground font-mono text-xs tracking-widest">{t('hero.est')}</span>
-            <div className="h-px w-12 bg-gray-300" />
+            <div className="bg-border h-px w-12" />
           </div>
 
           <h1
             ref={titleRef}
-            className="mb-6 font-serif text-5xl font-bold tracking-tight text-gray-900 md:text-7xl lg:text-8xl"
+            className="text-foreground mb-6 font-serif text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl"
           >
             {t('siteTitle')}
           </h1>
@@ -235,14 +235,14 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link
               href={`/${locale}/category/self-improvement`}
-              className="group flex items-center gap-2 rounded-sm bg-gray-900 px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-gray-800"
+              className="group bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-medium transition-all duration-300"
             >
               {t('hero.ctaPrimary')}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href={`/${locale}/about`}
-              className="rounded-sm border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition-all duration-300 hover:border-gray-900 hover:text-gray-900"
+              className="border-input text-foreground hover:border-ring hover:text-foreground rounded-sm border px-6 py-3 text-sm font-medium transition-all duration-300"
             >
               {t('hero.ctaSecondary')}
             </Link>
@@ -251,9 +251,9 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
 
         {/* Vertical Text - Right */}
         <div className="absolute top-1/2 right-8 hidden -translate-y-1/2 flex-col items-center gap-1 md:flex lg:right-16">
-          <span className="writing-vertical font-mono text-sm tracking-widest text-gray-300">BLOG</span>
-          <div className="my-2 h-8 w-px bg-gray-200" />
-          <span className="writing-vertical font-mono text-sm tracking-widest text-gray-300">2026</span>
+          <span className="writing-vertical text-muted font-mono text-sm tracking-widest">BLOG</span>
+          <div className="bg-border my-2 h-8 w-px" />
+          <span className="writing-vertical text-muted font-mono text-sm tracking-widest">2026</span>
         </div>
 
         {/* Scroll Indicator */}
@@ -265,9 +265,9 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
           <ArrowDown size={20} className="text-muted-foreground" />
         </div>
 
-        <div className="absolute top-20 right-20 hidden h-2 w-2 rounded-full bg-gray-300 lg:block" />
+        <div className="bg-muted absolute top-20 right-20 hidden h-2 w-2 rounded-full lg:block" />
         <div className="border-border absolute bottom-32 left-20 hidden h-3 w-3 rounded-full border lg:block" />
-        <div className="absolute top-1/3 right-1/4 hidden h-1 w-1 rounded-full bg-gray-400 lg:block" />
+        <div className="bg-muted-foreground absolute top-1/3 right-1/4 hidden h-1 w-1 rounded-full lg:block" />
       </section>
 
       {/* Featured Articles */}
@@ -278,11 +278,11 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
               <span className="text-muted-foreground mb-2 block font-mono text-xs tracking-widest">
                 {t('featured.label')}
               </span>
-              <h2 className="font-serif text-3xl font-semibold text-gray-900 lg:text-4xl">{t('featured.title')}</h2>
+              <h2 className="text-foreground font-serif text-3xl font-semibold lg:text-4xl">{t('featured.title')}</h2>
             </div>
             <Link
               href={`/${locale}/category/self-improvement`}
-              className="group flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+              className="group text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm transition-colors"
             >
               {t('featured.viewAll')}
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -300,27 +300,27 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
               >
                 <Link href={`/${locale}/articles/${post.slug}`}>
                   <div className="mb-4 flex items-center gap-3">
-                    <span className="font-mono text-4xl font-bold text-gray-200 transition-colors duration-500 group-hover:text-gray-900">
+                    <span className="text-muted group-hover:text-foreground font-mono text-4xl font-bold transition-colors duration-500">
                       0{index + 1}
                     </span>
-                    <div className="h-px flex-1 bg-gray-200 transition-colors duration-500 group-hover:bg-gray-900" />
+                    <div className="bg-border group-hover:bg-foreground h-px flex-1 transition-colors duration-500" />
                   </div>
 
                   <div className="mb-3 flex items-center gap-3">
                     <span className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
                       {t(`categoryNames.${post.category}`)}
                     </span>
-                    <span className="text-gray-300">·</span>
+                    <span className="text-muted">·</span>
                     <span className="text-muted-foreground text-xs">
                       {t('article.readTime', { count: post.readTime })}
                     </span>
                   </div>
 
-                  <h3 className="mb-3 line-clamp-2 font-serif text-xl font-semibold text-gray-900 transition-colors group-hover:text-gray-600">
+                  <h3 className="text-foreground group-hover:text-muted-foreground mb-3 line-clamp-2 font-serif text-xl font-semibold transition-colors">
                     {post.title}
                   </h3>
 
-                  <p className="line-clamp-3 text-sm leading-relaxed text-gray-500">{post.excerpt}</p>
+                  <p className="text-muted-foreground line-clamp-3 text-sm leading-relaxed">{post.excerpt}</p>
 
                   <p className="text-muted-foreground mt-4 font-mono text-xs">
                     {format.dateTime(new Date(post.date), {
@@ -337,16 +337,16 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
       </section>
 
       {/* Categories */}
-      <section className="bg-gray-50 py-24 lg:py-32">
+      <section className="bg-muted py-24 lg:py-32">
         <div className="mx-auto max-w-6xl px-6 lg:px-16">
           <div className="mb-16 text-center">
             <span className="text-muted-foreground mb-2 block font-mono text-xs tracking-widest">
               {t('categories.label')}
             </span>
-            <h2 className="mb-4 font-serif text-3xl font-semibold text-gray-900 lg:text-4xl">
+            <h2 className="text-foreground mb-4 font-serif text-3xl font-semibold lg:text-4xl">
               {t('categories.title')}
             </h2>
-            <p className="text-gray-500">{t('categories.subtitle')}</p>
+            <p className="text-muted-foreground">{t('categories.subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
@@ -354,13 +354,13 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
               <Link
                 key={cat.slug}
                 href={`/${locale}/category/${encodeURIComponent(cat.slug)}`}
-                className="group border-border relative rounded-sm border bg-white p-6 transition-all duration-300 hover:border-gray-900"
+                className="group border-border bg-card hover:border-ring relative rounded-sm border p-6 transition-all duration-300"
               >
-                <span className="absolute top-3 right-3 font-mono text-xs text-gray-300 transition-colors group-hover:text-gray-900">
+                <span className="text-muted group-hover:text-foreground absolute top-3 right-3 font-mono text-xs transition-colors">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mb-1 font-medium text-gray-900">{t(`categoryNames.${cat.slug}`)}</h3>
-                <span className="text-xs text-gray-500">
+                <h3 className="text-card-foreground mb-1 font-medium">{t(`categoryNames.${cat.slug}`)}</h3>
+                <span className="text-muted-foreground text-xs">
                   {cat.count} {t('categories.articles')}
                 </span>
               </Link>
@@ -377,7 +377,9 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
               <span className="text-muted-foreground mb-2 block font-mono text-xs tracking-widest">
                 {t('moreArticles.label')}
               </span>
-              <h2 className="font-serif text-3xl font-semibold text-gray-900 lg:text-4xl">{t('moreArticles.title')}</h2>
+              <h2 className="text-foreground font-serif text-3xl font-semibold lg:text-4xl">
+                {t('moreArticles.title')}
+              </h2>
             </div>
 
             <div className="space-y-0">
@@ -396,7 +398,7 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
                           <span className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
                             {t(`categoryNames.${post.category}`)}
                           </span>
-                          <span className="text-gray-300">·</span>
+                          <span className="text-muted">·</span>
                           <span className="text-muted-foreground text-xs">
                             {format.dateTime(new Date(post.date), {
                               month: 'short',
@@ -406,18 +408,18 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
                           </span>
                         </div>
 
-                        <h3 className="mb-2 font-serif text-xl font-semibold text-gray-900 transition-colors group-hover:text-gray-600 lg:text-2xl">
+                        <h3 className="text-foreground group-hover:text-muted-foreground mb-2 font-serif text-xl font-semibold transition-colors lg:text-2xl">
                           {post.title}
                         </h3>
 
-                        <p className="line-clamp-2 text-sm leading-relaxed text-gray-500">{post.excerpt}</p>
+                        <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
                       </div>
 
                       <div className="flex items-center gap-4">
                         <span className="text-muted-foreground font-mono text-xs whitespace-nowrap">
                           {t('article.readTime', { count: post.readTime })}
                         </span>
-                        <span className="text-muted-foreground transition-all duration-200 group-hover:translate-x-1 group-hover:text-gray-900">
+                        <span className="text-muted-foreground group-hover:text-foreground transition-all duration-200 group-hover:translate-x-1">
                           <ArrowRight size={18} />
                         </span>
                       </div>
@@ -431,12 +433,14 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
       )}
 
       {/* Newsletter */}
-      <section className="bg-gray-900 py-24 text-white lg:py-32">
+      <section className="bg-foreground text-background py-24 lg:py-32">
         <div className="mx-auto max-w-2xl px-6 text-center lg:px-16">
-          <span className="mb-4 block font-mono text-xs tracking-widest text-gray-500">{t('newsletter.label')}</span>
+          <span className="text-muted-foreground mb-4 block font-mono text-xs tracking-widest">
+            {t('newsletter.label')}
+          </span>
           <h2 className="mb-4 font-serif text-3xl font-semibold lg:text-4xl">{t('newsletter.title')}</h2>
-          <p className="text-muted-foreground mb-8 leading-relaxed">{t('newsletter.description')}</p>
-          <div className="[&_p]:text-muted-foreground mx-auto max-w-md [&_button]:bg-white [&_button]:text-gray-900 [&_button]:hover:bg-gray-100 [&_input]:border-0 [&_input]:bg-gray-800 [&_input]:text-white [&_input]:placeholder:text-gray-500 [&_input]:focus:ring-2 [&_input]:focus:ring-white/20">
+          <p className="text-background/70 mb-8 leading-relaxed">{t('newsletter.description')}</p>
+          <div className="[&_p]:text-background/70 [&_button]:bg-background [&_button]:text-foreground [&_button]:hover:bg-background/90 [&_input]:bg-background/20 [&_input]:text-background [&_input]:placeholder:text-background/50 [&_input]:focus:ring-background/20 mx-auto max-w-md [&_input]:border-0 [&_input]:focus:ring-2">
             <NewsletterForm />
           </div>
         </div>

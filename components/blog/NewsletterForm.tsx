@@ -50,18 +50,18 @@ export function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('placeholder')}
           disabled={status === 'loading' || status === 'success'}
-          className="flex-1 rounded-sm border border-gray-200 px-4 py-2 text-sm transition-colors focus:border-gray-400 focus:outline-none disabled:opacity-50"
+          className="border-input focus:border-ring flex-1 rounded-sm border px-4 py-2 text-sm transition-colors focus:outline-none disabled:opacity-50"
         />
         <button
           type="submit"
           disabled={status === 'loading' || status === 'success'}
-          className="rounded-sm bg-gray-900 px-6 py-2 text-sm text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm px-6 py-2 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         >
           {status === 'loading' ? '...' : t('button')}
         </button>
       </form>
       {message && (
-        <p className={`mt-2 text-xs ${status === 'success' ? 'text-green-600' : 'text-red-500'}`}>{message}</p>
+        <p className={`mt-2 text-xs ${status === 'success' ? 'text-green-600' : 'text-destructive'}`}>{message}</p>
       )}
     </div>
   )

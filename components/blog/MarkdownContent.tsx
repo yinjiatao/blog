@@ -10,38 +10,44 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
-        h2: ({ children }) => <h2 className="mt-10 mb-4 font-serif text-xl font-semibold text-gray-900">{children}</h2>,
-        h3: ({ children }) => <h3 className="mt-8 mb-3 font-serif text-lg font-semibold text-gray-900">{children}</h3>,
-        p: ({ children }) => <p className="mb-6 leading-relaxed text-gray-700">{children}</p>,
+        h2: ({ children }) => (
+          <h2 className="text-foreground mt-10 mb-4 font-serif text-xl font-semibold">{children}</h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-foreground mt-8 mb-3 font-serif text-lg font-semibold">{children}</h3>
+        ),
+        p: ({ children }) => <p className="text-foreground mb-6 leading-relaxed">{children}</p>,
         ul: ({ children }) => <ul className="mb-6 list-disc space-y-2 pl-6">{children}</ul>,
         ol: ({ children }) => <ol className="mb-6 list-decimal space-y-2 pl-6">{children}</ol>,
-        li: ({ children }) => <li className="leading-relaxed text-gray-700">{children}</li>,
+        li: ({ children }) => <li className="text-foreground leading-relaxed">{children}</li>,
         blockquote: ({ children }) => (
-          <blockquote className="my-6 border-l-4 border-gray-900 pl-6 text-gray-600 italic">{children}</blockquote>
+          <blockquote className="border-foreground text-muted-foreground my-6 border-l-4 pl-6 italic">
+            {children}
+          </blockquote>
         ),
         code: ({ children, className }) => {
           const isBlock = className?.includes('language-')
           if (isBlock) {
             return (
-              <pre className="mb-6 overflow-x-auto rounded-sm bg-gray-50 p-4">
-                <code className="font-mono text-sm text-gray-800">{children}</code>
+              <pre className="bg-muted mb-6 overflow-x-auto rounded-sm p-4">
+                <code className="text-foreground font-mono text-sm">{children}</code>
               </pre>
             )
           }
-          return <code className="rounded bg-gray-100 px-1.5 py-0.5 font-mono text-sm text-gray-800">{children}</code>
+          return <code className="bg-muted text-foreground rounded px-1.5 py-0.5 font-mono text-sm">{children}</code>
         },
-        strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
+        strong: ({ children }) => <strong className="text-foreground font-semibold">{children}</strong>,
         a: ({ href, children }) => (
           <a
             href={href}
-            className="text-gray-900 underline underline-offset-2 transition-colors hover:text-gray-600"
+            className="text-foreground hover:text-muted-foreground underline underline-offset-2 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
             {children}
           </a>
         ),
-        hr: () => <hr className="my-8 border-gray-200" />,
+        hr: () => <hr className="border-border my-8" />,
       }}
     >
       {content}

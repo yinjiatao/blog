@@ -2,7 +2,15 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
 
 interface LangOptionsProps {
   languages: { code: string; label: string; flag: string }[]
@@ -10,15 +18,28 @@ interface LangOptionsProps {
   onSwitch: (code: string) => void
 }
 
-function LangOptions({ languages, locale, onSwitch }: LangOptionsProps) {
+function LangDropdownItems({ languages, locale, onSwitch }: LangOptionsProps) {
+  return (
+    <>
+      {languages.map((lang) => (
+        <DropdownMenuItem key={lang.code} onClick={() => onSwitch(lang.code)} className="cursor-pointer">
+          <span>{lang.flag}</span>
+          <span className={locale === lang.code ? 'font-medium' : ''}>{lang.label}</span>
+        </DropdownMenuItem>
+      ))}
+    </>
+  )
+}
+
+function LangDrawerItems({ languages, locale, onSwitch }: LangOptionsProps) {
   return (
     <div className="space-y-1 p-4">
       {languages.map((lang) => (
         <button
           key={lang.code}
           onClick={() => onSwitch(lang.code)}
-          className={`flex w-full items-center gap-3 rounded-sm px-4 py-3 text-sm transition-colors hover:bg-gray-50 ${
-            locale === lang.code ? 'bg-gray-50 font-medium text-gray-900' : 'text-gray-600'
+          className={`hover:bg-muted flex w-full items-center gap-3 rounded-sm px-4 py-3 text-sm transition-colors ${
+            locale === lang.code ? 'bg-muted text-foreground font-medium' : 'text-muted-foreground'
           }`}
         >
           <span>{lang.flag}</span>
@@ -50,7 +71,7 @@ export function LanguageSwitcher() {
 
   const triggerBtn = (
     <button
-      className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 transition-colors hover:text-gray-900"
+      className="text-muted-foreground hover:text-foreground flex items-center gap-2 px-3 py-2 text-sm transition-colors"
       aria-label={t('switch')}
     >
       <span>{currentLang?.flag}</span>
@@ -60,12 +81,14 @@ export function LanguageSwitcher() {
 
   return (
     <>
-      {/* Desktop: hover dropdown */}
-      <div className="group relative hidden md:block">
-        {triggerBtn}
-        <div className="invisible absolute top-full right-0 z-50 mt-1 w-32 rounded-sm border border-gray-200 bg-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
-          <LangOptions languages={languages} locale={locale} onSwitch={handleSwitch} />
-        </div>
+      {/* Desktop: shadcn DropdownMenu */}
+      <div className="hidden md:block">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>{triggerBtn}</DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="min-w-32">
+            <LangDropdownItems languages={languages} locale={locale} onSwitch={handleSwitch} />
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
 
       {/* Mobile: shadcn Drawer */}
@@ -76,8 +99,9 @@ export function LanguageSwitcher() {
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>{t('switch')}</DrawerTitle>
+            <DrawerDescription>{t('description')}</DrawerDescription>
           </DrawerHeader>
-          <LangOptions languages={languages} locale={locale} onSwitch={handleSwitch} />
+          <LangDrawerItems languages={languages} locale={locale} onSwitch={handleSwitch} />
         </DrawerContent>
       </Drawer>
     </>
