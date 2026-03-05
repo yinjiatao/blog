@@ -44,7 +44,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   })
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-background min-h-screen">
       <SidebarWrapper categories={categories} />
 
       <main className="min-h-screen pt-16 lg:ml-[200px] lg:pt-0">
@@ -52,31 +52,31 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <article className="animate-fade-in-up">
             <Link
               href={`/${locale}`}
-              className="group mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+              className="group text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-colors"
             >
               <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
               {t('article.back')}
             </Link>
 
-            <header className="mb-10 border-b border-gray-200 pb-8">
+            <header className="border-border mb-10 border-b pb-8">
               <div className="mb-4 flex flex-wrap items-center gap-3">
-                <span className="font-mono text-xs tracking-wider text-gray-400 uppercase">
+                <span className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
                   {t(`categoryNames.${post.category}`)}
                 </span>
-                <span className="text-xs text-gray-300">|</span>
-                <span className="text-xs text-gray-400">{formattedDate}</span>
-                <span className="text-xs text-gray-300">|</span>
-                <span className="text-xs text-gray-400">{t('article.readTime', { count: post.readTime })}</span>
+                <span className="text-muted text-xs">|</span>
+                <span className="text-muted-foreground text-xs">{formattedDate}</span>
+                <span className="text-muted text-xs">|</span>
+                <span className="text-muted-foreground text-xs">{t('article.readTime', { count: post.readTime })}</span>
               </div>
 
-              <h1 className="mb-6 font-serif text-2xl leading-tight font-semibold text-gray-900 md:text-3xl">
+              <h1 className="text-foreground mb-6 font-serif text-2xl leading-tight font-semibold md:text-3xl">
                 {post.title}
               </h1>
 
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-400">{t('article.tags')}:</span>
-                  <span className="rounded-sm bg-gray-100 px-2 py-1 text-xs text-gray-600">
+                  <span className="text-muted-foreground text-xs">{t('article.tags')}:</span>
+                  <span className="bg-muted text-muted-foreground rounded-sm px-2 py-1 text-xs">
                     {t(`categoryNames.${post.category}`)}
                   </span>
                 </div>
@@ -85,11 +85,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </header>
 
             <div className="article-content">
-              <p className="mb-8 font-serif text-lg leading-relaxed text-gray-600">{post.excerpt}</p>
+              <p className="text-muted-foreground mb-8 font-serif text-lg leading-relaxed">{post.excerpt}</p>
               <MarkdownContent content={post.content} />
             </div>
 
-            <footer className="mt-16 border-t border-gray-200 pt-8">
+            <footer className="border-border mt-16 border-t pt-8">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 {prevPost ? (
                   <Link
@@ -98,11 +98,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   >
                     <ArrowLeft
                       size={18}
-                      className="mt-0.5 hidden text-gray-400 transition-all group-hover:-translate-x-1 group-hover:text-gray-900 sm:inline-flex"
+                      className="text-muted-foreground group-hover:text-foreground mt-0.5 hidden transition-all group-hover:-translate-x-1 sm:inline-flex"
                     />
                     <div>
-                      <span className="mb-1 block text-xs text-gray-400">{t('article.prev')}</span>
-                      <span className="line-clamp-1 text-sm text-gray-700 transition-colors group-hover:text-gray-900">
+                      <span className="text-muted-foreground mb-1 block text-xs">{t('article.prev')}</span>
+                      <span className="text-muted-foreground group-hover:text-foreground line-clamp-1 text-sm transition-colors">
                         {prevPost.title}
                       </span>
                     </div>
@@ -118,11 +118,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   >
                     <ArrowRight
                       size={18}
-                      className="mt-0.5 hidden text-gray-400 transition-all group-hover:translate-x-1 group-hover:text-gray-900 sm:inline-flex"
+                      className="text-muted-foreground group-hover:text-foreground mt-0.5 hidden transition-all group-hover:translate-x-1 sm:inline-flex"
                     />
                     <div>
-                      <span className="mb-1 block text-xs text-gray-400">{t('article.next')}</span>
-                      <span className="line-clamp-1 text-sm text-gray-700 transition-colors group-hover:text-gray-900">
+                      <span className="text-muted-foreground mb-1 block text-xs">{t('article.next')}</span>
+                      <span className="text-muted-foreground group-hover:text-foreground line-clamp-1 text-sm transition-colors">
                         {nextPost.title}
                       </span>
                     </div>

@@ -33,7 +33,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const posts = getPostsByCategory(category, locale)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-background min-h-screen">
       <SidebarWrapper categories={allCategories} />
 
       <main className="min-h-screen pt-16 lg:ml-[200px] lg:pt-0">
@@ -41,20 +41,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <div className="animate-fade-in-up">
             <Link
               href={`/${locale}`}
-              className="group mb-8 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+              className="group text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-colors"
             >
               <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
               {t('article.back')}
             </Link>
 
-            <header className="mb-12 border-b border-gray-200 pb-8">
+            <header className="border-border mb-12 border-b pb-8">
               <div className="mb-4 flex items-center gap-2">
-                <span className="text-sm text-gray-400">{t('nav.categories')}</span>
-                <span className="text-gray-300">/</span>
-                <span className="font-mono text-xs tracking-wider text-gray-400 uppercase">{category}</span>
+                <span className="text-muted-foreground text-sm">{t('nav.categories')}</span>
+                <span className="text-muted">/</span>
+                <span className="text-muted-foreground font-mono text-xs tracking-wider uppercase">{category}</span>
               </div>
-              <h1 className="mb-3 font-serif text-3xl font-semibold text-gray-900">{t(`categoryNames.${category}`)}</h1>
-              <p className="text-sm text-gray-500">
+              <h1 className="text-foreground mb-3 font-serif text-3xl font-semibold">
+                {t(`categoryNames.${category}`)}
+              </h1>
+              <p className="text-muted-foreground text-sm">
                 {posts.length} {t('categories.articles')}
               </p>
             </header>
@@ -62,14 +64,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             {posts.length > 0 ? (
               <div className="space-y-0">
                 {posts.map((post) => (
-                  <article key={post.slug} className="group border-b border-gray-200 py-8 last:border-b-0">
+                  <article key={post.slug} className="group border-border border-b py-8 last:border-b-0">
                     <Link href={`/${locale}/articles/${post.slug}`} className="block">
                       <div className="mb-3 flex items-center gap-4">
-                        <span className="font-mono text-xs tracking-wider text-gray-400 uppercase">
+                        <span className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
                           {t(`categoryNames.${post.category}`)}
                         </span>
-                        <span className="text-xs text-gray-300">|</span>
-                        <span className="text-xs text-gray-400">
+                        <span className="text-muted text-xs">|</span>
+                        <span className="text-muted-foreground text-xs">
                           {format.dateTime(new Date(post.date), {
                             month: 'short',
                             day: 'numeric',
@@ -78,15 +80,17 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                         </span>
                       </div>
 
-                      <h2 className="mb-3 font-serif text-xl leading-snug font-semibold text-gray-900 transition-colors duration-200 group-hover:text-gray-700">
+                      <h2 className="text-foreground group-hover:text-muted-foreground mb-3 font-serif text-xl leading-snug font-semibold transition-colors duration-200">
                         {post.title}
                       </h2>
 
-                      <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-gray-600">{post.excerpt}</p>
+                      <p className="text-muted-foreground mb-4 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
 
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-gray-400">{t('article.readTime', { count: post.readTime })}</span>
-                        <span className="text-gray-400 transition-all duration-200 group-hover:translate-x-1 group-hover:text-gray-900">
+                        <span className="text-muted-foreground text-xs">
+                          {t('article.readTime', { count: post.readTime })}
+                        </span>
+                        <span className="text-muted-foreground group-hover:text-foreground transition-all duration-200 group-hover:translate-x-1">
                           <ArrowRight size={16} />
                         </span>
                       </div>
@@ -96,12 +100,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               </div>
             ) : (
               <div className="py-16 text-center">
-                <p className="text-gray-400">{t('noArticles')}</p>
+                <p className="text-muted-foreground">{t('noArticles')}</p>
               </div>
             )}
 
-            <footer className="mt-16 border-t border-gray-200 pt-8 text-center">
-              <p className="font-mono text-xs text-gray-400">{t('footer.copyright')}</p>
+            <footer className="border-border mt-16 border-t pt-8 text-center">
+              <p className="text-muted-foreground font-mono text-xs">{t('footer.copyright')}</p>
             </footer>
           </div>
         </div>
