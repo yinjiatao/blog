@@ -92,5 +92,11 @@ export function getCategoriesWithCount(locale: string): { slug: string; count: n
     countMap[post.category] = (countMap[post.category] ?? 0) + 1
   }
 
-  return Object.entries(countMap).map(([slug, count]) => ({ slug, count }))
+  return Object.entries(countMap)
+    .map(([slug, count]) => ({ slug, count }))
+    .sort((a, b) => {
+      const indexA = CATEGORY_ORDER.indexOf(a.slug)
+      const indexB = CATEGORY_ORDER.indexOf(b.slug)
+      return indexA - indexB
+    })
 }
