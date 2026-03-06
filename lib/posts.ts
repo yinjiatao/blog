@@ -66,9 +66,22 @@ export function getPostsByCategory(category: string, locale: string): PostFrontm
   return getAllPosts(locale).filter((post) => post.category === category)
 }
 
+const CATEGORY_ORDER = [
+  'self-improvement',
+  'super-individual',
+  'one-person-company',
+  'tools',
+]
+
 export function getAllCategories(locale: string): string[] {
   const posts = getAllPosts(locale)
-  return [...new Set(posts.map((post) => post.category))]
+  const categories = [...new Set(posts.map((post) => post.category))]
+  // Sort categories by predefined order
+  return categories.sort((a, b) => {
+    const indexA = CATEGORY_ORDER.indexOf(a)
+    const indexB = CATEGORY_ORDER.indexOf(b)
+    return indexA - indexB
+  })
 }
 
 export function getCategoriesWithCount(locale: string): { slug: string; count: number }[] {
