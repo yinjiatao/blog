@@ -234,7 +234,7 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
 
           <div className="mt-10 flex items-center justify-center gap-4">
             <Link
-              href={`/${locale}/category/self-improvement`}
+              href={`/${locale}/articles`}
               className="group bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-medium transition-all duration-300"
             >
               {t('hero.ctaPrimary')}
@@ -281,7 +281,7 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
               <h2 className="text-foreground font-serif text-3xl font-semibold lg:text-4xl">{t('featured.title')}</h2>
             </div>
             <Link
-              href={`/${locale}/category/self-improvement`}
+              href={`/${locale}/articles`}
               className="group text-muted-foreground hover:text-foreground flex items-center gap-2 text-sm transition-colors"
             >
               {t('featured.viewAll')}
@@ -349,7 +349,7 @@ export function HomeClient({ posts, categories }: HomeClientProps) {
             <p className="text-muted-foreground">{t('categories.subtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {categories.map((cat, index) => (
               <Link
                 key={cat.slug}

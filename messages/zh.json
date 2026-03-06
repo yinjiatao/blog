@@ -104,7 +104,6 @@
     "self-improvement": "自我提升",
     "super-individual": "超级个体",
     "one-person-company": "一人公司",
-    "viral-growth": "病毒式增长",
     "tools": "工具与实战"
   },
   "language": {
@@ -113,6 +112,8 @@
     "zh": "中文",
     "en": "English"
   },
+  "allArticles": "全部文章",
+  "filterAll": "全部",
   "noArticles": "该分类下暂无文章",
   "wechat": {
     "title": "尹家韬",

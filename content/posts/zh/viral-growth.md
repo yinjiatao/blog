@@ -2,7 +2,7 @@
 title: '产品自增长的底层逻辑'
 excerpt: '真正的增长不是来自广告预算，而是来自产品本身的设计。探讨如何构建具有自传播能力的产品。'
 date: '2026-02-10'
-category: 'viral-growth'
+category: 'super-individual'
 readTime: 10
 slug: 'viral-growth'
 ---

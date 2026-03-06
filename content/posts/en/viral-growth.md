@@ -2,7 +2,7 @@
 title: 'The Underlying Logic of Product-Led Growth'
 excerpt: "True growth doesn't come from an advertising budget — it comes from the product itself. Let's explore how to build products with built-in virality."
 date: '2026-02-10'
-category: 'viral-growth'
+category: 'super-individual'
 readTime: 10
 slug: 'viral-growth'
 ---

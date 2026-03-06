@@ -108,7 +108,6 @@
     "self-improvement": "Self-Improvement",
     "super-individual": "Super Individual",
     "one-person-company": "One-Person Company",
-    "viral-growth": "Viral Growth",
     "tools": "Tools & Practice"
   },
   "language": {
@@ -117,6 +116,8 @@
     "zh": "中文",
     "en": "English"
   },
+  "allArticles": "All Articles",
+  "filterAll": "All",
   "noArticles": "No articles in this category",
   "wechat": {
     "title": "Tao",

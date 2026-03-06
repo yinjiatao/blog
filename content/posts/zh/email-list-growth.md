@@ -2,7 +2,7 @@
 title: '邮件列表：被遗忘的增长利器'
 excerpt: '在算法主导的时代，邮件列表是你能真正拥有的资产。探讨如何建立和运营高价值的邮件列表。'
 date: '2026-01-08'
-category: 'viral-growth'
+category: 'super-individual'
 readTime: 13
 slug: 'email-list-growth'
 ---

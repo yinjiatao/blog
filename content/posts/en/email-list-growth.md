@@ -2,7 +2,7 @@
 title: 'Email Lists: The Forgotten Growth Engine'
 excerpt: "In the age of algorithms, an email list is an asset you truly own. Let's explore how to build and operate a high-value email list."
 date: '2026-01-08'
-category: 'viral-growth'
+category: 'super-individual'
 readTime: 13
 slug: 'email-list-growth'
 ---
