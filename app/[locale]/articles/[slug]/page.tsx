@@ -80,7 +80,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </div>
             </header>
 
-            <div className="article-content">
+            <div className="article-content prose dark:prose-invert">
               <p className="text-muted-foreground mb-8 font-serif text-lg leading-relaxed">{post.excerpt}</p>
               <MarkdownContent content={post.content} />
             </div>

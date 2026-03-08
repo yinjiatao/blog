@@ -2,6 +2,8 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
+@plugin '@tailwindcss/typography';
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -72,6 +74,15 @@
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
+  --code-plain: #e2e8f0;
+  --code-comment: #94a3b8;
+  --code-keyword: #c084fc;
+  --code-string: #86efac;
+  --code-variable: #fbbf24;
+  --code-number: #7dd3fc;
+  --code-function: #93c5fd;
+  --code-builtin: #fda4af;
+  --code-punctuation: #cbd5e1;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -106,6 +117,15 @@
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
+  --code-plain: #e2e8f0;
+  --code-comment: #94a3b8;
+  --code-keyword: #d8b4fe;
+  --code-string: #86efac;
+  --code-variable: #fbbf24;
+  --code-number: #7dd3fc;
+  --code-function: #93c5fd;
+  --code-builtin: #fda4af;
+  --code-punctuation: #cbd5e1;
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -153,4 +173,68 @@
 /* Article content spacing */
 .article-content > * + * {
   margin-top: 0;
+}
+
+.prose pre.prismjs {
+  background-color: #1e2939;
+  color: var(--code-plain);
+}
+
+.dark .prose pre.prismjs {
+  background-color: #00000080;
+}
+
+.prismjs {
+  color: var(--code-plain);
+}
+
+.prismjs .token.comment,
+.prismjs .token.prolog,
+.prismjs .token.doctype,
+.prismjs .token.cdata {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.prismjs .token.keyword,
+.prismjs .token.atrule,
+.prismjs .token.selector,
+.prismjs .token.important {
+  color: var(--code-keyword);
+}
+
+.prismjs .token.string,
+.prismjs .token.char,
+.prismjs .token.inserted {
+  color: var(--code-string);
+}
+
+.prismjs .token.variable,
+.prismjs .token.constant,
+.prismjs .token.symbol,
+.prismjs .token.attr-name,
+.prismjs .token.property,
+.prismjs .token.parameter,
+.prismjs .token.environment {
+  color: var(--code-variable);
+}
+
+.prismjs .token.number,
+.prismjs .token.boolean {
+  color: var(--code-number);
+}
+
+.prismjs .token.function,
+.prismjs .token.function-name {
+  color: var(--code-function);
+}
+
+.prismjs .token.builtin,
+.prismjs .token.class-name,
+.prismjs .token.operator {
+  color: var(--code-builtin);
+}
+
+.prismjs .token.punctuation {
+  color: var(--code-punctuation);
 }
