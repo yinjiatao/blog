@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getPostBySlug, getAllPosts, getAllSlugs, getAllCategories } from '@/lib/posts'
 import { SidebarWrapper } from '@/components/blog/SidebarWrapper'
 import { CopyButton } from '@/components/blog/CopyButton'
+import { ArticleBackButton } from '@/components/blog/ArticleBackButton'
 import { MarkdownContent } from '@/components/blog/MarkdownContent'
 import { routing } from '@/i18n/routing'
 
@@ -50,13 +51,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <main className="min-h-screen pt-16 lg:ml-48 lg:pt-0">
         <div className="mx-auto max-w-3xl px-6 py-12 lg:px-16 lg:py-16">
           <article className="animate-fade-in-up">
-            <Link
-              href={`/${locale}`}
-              className="group text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-colors"
-            >
-              <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-              {t('article.back')}
-            </Link>
+            <ArticleBackButton locale={locale} label={t('article.back')} />
 
             <header className="border-border mb-10 border-b pb-8">
               <div className="mb-4 flex flex-wrap items-center gap-3">
