@@ -2,7 +2,14 @@ import { notFound } from 'next/navigation'
 import { getTranslations, getFormatter } from 'next-intl/server'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { getPostBySlug, getAllPosts, getAllSlugs, getAllCategories } from '@/lib/posts'
+import {
+  getPostBySlug,
+  getAllPosts,
+  getAllSlugs,
+  getAllCategories,
+  getPostDateFormatOptions,
+  parsePostDate,
+} from '@/lib/posts'
 import { SidebarWrapper } from '@/components/blog/SidebarWrapper'
 import { CopyButton } from '@/components/blog/CopyButton'
 import { ArticleBackButton } from '@/components/blog/ArticleBackButton'
@@ -38,11 +45,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
   const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
 
-  const formattedDate = format.dateTime(new Date(post.date), {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
+  const formattedDate = format.dateTime(parsePostDate(post.date), getPostDateFormatOptions())
 
   return (
     <div className="bg-background min-h-screen">
@@ -51,10 +54,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <main className="min-h-screen pt-16 lg:ml-48 lg:pt-0">
         <div className="mx-auto max-w-3xl px-6 py-12 lg:px-16 lg:py-16">
           <article className="animate-fade-in-up">
-            <ArticleBackButton locale={locale} label={t('article.back')} />
+            <div className="mb-8 flex items-center justify-between gap-4">
+              <ArticleBackButton locale={locale} label={t('article.back')} />
+              <CopyButton post={post} />
+            </div>
 
             <header className="border-border mb-10 border-b pb-8">
-              <div className="mb-4 flex flex-wrap items-center gap-3">
+              <div className="mb-4 flex flex-wrap items-center gap-2">
+                <span className="text-muted-foreground text-xs">{t(`categoryNames.${post.category}`)}</span>
+                <span className="text-muted text-xs">|</span>
                 <span className="text-muted-foreground text-xs">{formattedDate}</span>
                 <span className="text-muted text-xs">|</span>
                 <span className="text-muted-foreground text-xs">{t('article.readTime', { count: post.readTime })}</span>
@@ -64,19 +72,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {post.title}
               </h1>
 
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground text-xs">{t('article.categories')}:</span>
-                  <span className="bg-muted text-muted-foreground rounded-sm px-2 py-1 text-xs">
-                    {t(`categoryNames.${post.category}`)}
-                  </span>
-                </div>
-                <CopyButton post={post} />
-              </div>
+              <p className="text-muted-foreground font-serif text-lg leading-relaxed">{post.excerpt}</p>
             </header>
 
-            <div className="article-content prose dark:prose-invert">
-              <p className="text-muted-foreground mb-8 font-serif text-lg leading-relaxed">{post.excerpt}</p>
+            <div className="prose dark:prose-invert">
               <MarkdownContent content={post.content} />
             </div>
 

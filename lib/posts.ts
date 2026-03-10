@@ -16,6 +16,33 @@ export interface Post extends PostFrontmatter {
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/posts')
+const POST_DATE_PATTERN =
+  /^(\d{4})-(\d{2})-(\d{2})(?:\s+(\d{2}):(\d{2}))?$/
+type PostDateFormatOptions = {
+  year: 'numeric' | '2-digit'
+  month: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow'
+  day: 'numeric' | '2-digit'
+}
+
+export function parsePostDate(date: string): Date {
+  const match = POST_DATE_PATTERN.exec(date)
+
+  if (match) {
+    const [, year, month, day, hour = '0', minute = '0'] = match
+
+    return new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute))
+  }
+
+  return new Date(date)
+}
+
+export function getPostDateFormatOptions(): PostDateFormatOptions {
+  return {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }
+}
 
 export function getAllPosts(locale: string): PostFrontmatter[] {
   const localeDir = path.join(postsDirectory, locale)
@@ -33,7 +60,7 @@ export function getAllPosts(locale: string): PostFrontmatter[] {
       return data as PostFrontmatter
     })
 
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return posts.sort((a, b) => parsePostDate(b.date).getTime() - parsePostDate(a.date).getTime())
 }
 
 export function getPostBySlug(slug: string, locale: string): Post | null {

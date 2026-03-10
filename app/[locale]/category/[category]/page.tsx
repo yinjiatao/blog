@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { getTranslations, getFormatter } from 'next-intl/server'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { getPostsByCategory, getAllCategories } from '@/lib/posts'
+import { getPostsByCategory, getAllCategories, getPostDateFormatOptions, parsePostDate } from '@/lib/posts'
 import { SidebarWrapper } from '@/components/blog/SidebarWrapper'
 import { routing } from '@/i18n/routing'
 
@@ -72,11 +72,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                         </span>
                         <span className="text-muted text-xs">|</span>
                         <span className="text-muted-foreground text-xs">
-                          {format.dateTime(new Date(post.date), {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric',
-                          })}
+                          {format.dateTime(parsePostDate(post.date), getPostDateFormatOptions())}
                         </span>
                       </div>
 

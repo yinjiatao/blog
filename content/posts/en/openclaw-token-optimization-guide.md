@@ -1,7 +1,7 @@
 ---
 title: 'The OpenClaw Token Savings Playbook: Cut 60-95% Off Your Bill Across Nine Levers'
 excerpt: 'You are not just paying for OpenClaw''s answers. More often, you are paying for tool schema, config injection, bloated history, and cache misses. This guide breaks down the nine levers that actually matter, in priority order, so you know what to change first.'
-date: '2026-03-08'
+date: '2026-03-08 08:00'
 category: 'tools'
 readTime: 18
 slug: 'openclaw-token-optimization-guide'

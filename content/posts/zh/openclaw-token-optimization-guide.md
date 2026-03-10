@@ -1,7 +1,7 @@
 ---
 title: 'OpenClaw 省 Token 实战手册：九个维度，账单砍掉 60–95%'
 excerpt: '你不是只在为 OpenClaw 的回答付费，更多时候，你在为工具 schema、配置注入、历史上下文和缓存失效付费。本文把真正值钱的九个杠杆按优先级拆开，告诉你先改什么最省。'
-date: '2026-03-08'
+date: '2026-03-08 08:00'
 category: 'tools'
 readTime: 18
 slug: 'openclaw-token-optimization-guide'
