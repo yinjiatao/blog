@@ -7,7 +7,7 @@ readTime: 9
 slug: 'workbuddy-obsidian-karpathy-knowledge-base'
 ---
 
-![A Karpathy-style knowledge base built with WorkBuddy and Obsidian](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-obsidian-karpathy-cover.webp)
+![A Karpathy-style knowledge base built with WorkBuddy and Obsidian](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-obsidian-karpathy-cover-en.webp)
 
 When was the last time you took notes with real care?
 
@@ -63,7 +63,7 @@ That 1 coin is new principal created out of thin air.
 
 The most important step is to reinvest the coin you saved. Invest 1 coin, save 1 coin. Then invest 2 coins and save even more. The moment the **flywheel** starts turning is the moment your growth begins.
 
-![The 24-coin time model](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-24-coins-theory.webp)
+![The 24-coin time model](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-24-coins-theory-en.webp)
 
 This is the **knowledge bank**.
 
@@ -97,7 +97,7 @@ So now is the best time to start **taking notes seriously** again.
 
 ## Where Did This Idea Come From?
 
-![Karpathy’s LLM Wiki idea](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-karpathy-llm-wiki-method.webp)
+![Karpathy’s LLM Wiki idea](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-karpathy-llm-wiki-method-en.webp)
 
 This method is inspired by Andrej Karpathy’s LLM Wiki idea. Let AI take on the most tedious parts of a knowledge base, while you do the most interesting parts.
 
@@ -119,11 +119,11 @@ After all, **the best system is the one that fits you.**
 
 First, create a new vault in Obsidian.
 
-![Create a new vault in Obsidian](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-obsidian-create-vault.webp)
+![Create a new vault in Obsidian](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-obsidian-create-vault-en.webp)
 
 Then open `WorkBuddy`, create a new conversation, and choose the vault folder you just created as the workspace.
 
-![Choose the Obsidian vault folder in WorkBuddy](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-session-setup.webp)
+![Choose the Obsidian vault folder in WorkBuddy](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-session-setup-en.webp)
 
 Now both sides are watching the same set of files. Obsidian is responsible for reading and viewing. WorkBuddy is responsible for doing the work.
 
@@ -151,7 +151,7 @@ Fourth, the rules.
 
 It should define naming, links, and source formats; how to handle conflicts and outdated content; where the boundaries are for storage, distillation, querying, maintenance, and inspection; and what checks must pass before delivery.
 
-![AGENTS.md manages the knowledge base project structure](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-agents-project-structure.webp)
+![AGENTS.md manages the knowledge base project structure](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-agents-project-structure-en.webp)
 
 But do not copy my file directly. Let AI interview you first:
 
@@ -179,7 +179,7 @@ The collection route is handled by WorkBuddy.
 
 Send it a link directly. It will follow the rules in AGENTS.md, fetch the data, organize it into structured content, complete the source and time fields, and register it in the index.
 
-![WorkBuddy collects linked content according to rules](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-agent-collect.webp)
+![WorkBuddy collects linked content according to rules](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-agent-collect-en.webp)
 
 The tricky part is that links come from all kinds of sources. Videos, podcasts, and Xiaohongshu all have their own quirks. You can use CLI tools for those platforms, existing open-source collection solutions, or your own RPA scripts.
 
@@ -187,13 +187,13 @@ You only need to follow one principle: collect only high-quality content. Better
 
 After collection or storage finishes, you can also ask AI to produce a report for you.
 
-![WorkBuddy generates a recent content summary](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-weekly-content-summary.webp)
+![WorkBuddy generates a recent content summary](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-weekly-content-summary-en.webp)
 
 ### Distillation
 
 After collection or storage, we can enter the distillation stage.
 
-![Knowledge system distillation result](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-knowledge-system-refinement.webp)
+![Knowledge system distillation result](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-knowledge-system-refinement-en.webp)
 
 In daily use, one sentence is enough:
 
@@ -213,11 +213,11 @@ After storing your first material, you can start asking WorkBuddy related questi
 
 > Help me summarize Karpathy’s LLM Wiki building method.
 
-![WorkBuddy queries Karpathy’s LLM Wiki building method](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-query-karpathy.webp)
+![WorkBuddy queries Karpathy’s LLM Wiki building method](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-query-karpathy-en.webp)
 
 WorkBuddy will progressively load relevant content according to the rules in AGENTS.md. It first reads the **index** file, locks onto relevant knowledge pages, and then reads those pages in detail. Only when necessary will it load **raw resources**. It will not load the entire knowledge base from the beginning.
 
-![Query rules in AGENTS.md](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-agents-query-rules.webp)
+![Query rules in AGENTS.md](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-agents-query-rules-en.webp)
 
 For high-value judgments generated in conversation, AI marks them as candidate content. You should be able to write them back into **knowledge assets** at any time, so the whole system can grow with you.
 
@@ -229,11 +229,11 @@ You can start a new conversation in WorkBuddy:
 
 > Maintain the knowledge base.
 
-![WorkBuddy knowledge base maintenance result](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-maintenance-result.webp)
+![WorkBuddy knowledge base maintenance result](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-maintenance-result-en.webp)
 
 You can also use WorkBuddy scheduled tasks to run health checks every so often.
 
-![WorkBuddy scheduled task setup](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-automation-task-setup.webp)
+![WorkBuddy scheduled task setup](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-automation-task-setup-en.webp)
 
 This is the most complicated part of the whole workflow. Fortunately, AI can help you finish it.
 
@@ -247,11 +247,11 @@ I set up three loops:
 2. Every morning, combine the accumulated knowledge in the base with yesterday’s trends and generate three topic candidates.
 3. Run an inspection every Sunday.
 
-![WorkBuddy automation task list](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-automation-list.webp)
+![WorkBuddy automation task list](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-automation-list-en.webp)
 
 **While you are asleep, it can keep working for you. When you wake up, the content you are most interested in is already in front of you.**
 
-![WorkBuddy automation task result](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-automation-result.webp)
+![WorkBuddy automation task result](/posts/workbuddy-obsidian-karpathy-knowledge-base/20260706-workbuddy-automation-result-en.webp)
 
 ## The Final Form of a Knowledge Base
 
