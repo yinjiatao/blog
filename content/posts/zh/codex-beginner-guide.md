@@ -7,7 +7,7 @@ readTime: 18
 slug: 'codex-beginner-guide'
 ---
 
-![Codex 零基础教程](/posts/codex-beginner-guide/codex-first-safe-workflow-cover.png)
+![ChatGPT Chat 与 Work 桌面端、移动端界面](/posts/codex-beginner-guide/codex-first-safe-workflow-cover.png)
 
 打开新版 ChatGPT App 后，第一件事不是把所有按钮认一遍。
 
@@ -76,17 +76,7 @@ ChatGPT 是 Agent 工具，既不是模型，也不是任务。
 
 它更像一台由 OpenAI 管理、专门替你运行 Codex 任务的远程工作机。
 
-| 对比项 | ChatGPT 网页端（Chat / Work） | ChatGPT App（本地 Codex） | Codex Cloud |
-| --- | --- | --- | --- |
-| 运行位置 | ChatGPT 托管环境 | 你的电脑 | OpenAI 管理的隔离容器 |
-| 主要材料 | 上传文件、项目文件、Connector 与 Plugin 来源 | 你选择的本地文件夹和 Git 仓库 | 已连接的 GitHub 仓库 |
-| 命令在哪里运行 | Work 的工具在托管环境运行，不直接使用你的本地终端 | 在授权的本地工作区运行 | 在配置好的 Cloud environment 运行 |
-| Git 怎么处理 | 不直接操作电脑上的 checkout 或 Worktree | 使用本地 Git、diff、分支和 Worktree | 检出选定分支或 commit，返回 diff，也可以创建 PR |
-| 是否依赖本机 | 不要求某台电脑持续运行 | 本地任务需要电脑和 ChatGPT App 保持可用 | 提交后由云端继续执行，不要求本机保持运行 |
-| 执行环境 | 由 ChatGPT 和工作区管理 | 使用本机系统、依赖与工具 | 可配置 setup script、依赖、环境变量、Secrets 和网络权限 |
-| 模型选择 | 使用网页端当前开放的模型 | 可以选择本地 Codex 支持的模型与 Provider | 当前不能手动更换 Cloud 任务的默认模型 |
-| 前置条件 | 登录 ChatGPT；功能受套餐和工作区设置影响 | 安装 ChatGPT App，并授权本地文件夹 | 使用 ChatGPT 登录、连接仓库并创建 Cloud environment |
-| 更适合 | 在线研究、报告、文档、表格和 Sites | 本地项目、电脑工具、即时调试与本地 Git | 并行、远程或不想占用本机环境的仓库任务 |
+![ChatGPT 网页端、本地 Codex 与 Codex Cloud 对比](/posts/codex-beginner-guide/codex-runtime-comparison-handdrawn.png)
 
 ChatGPT Work 和 Codex Cloud 都可能在云端运行，但不是同一种任务。
 
@@ -506,15 +496,7 @@ Git 项目可以使用独立 Worktree。
 
 CC-Switch 在本机做的是：
 
-~~~text
-Codex Responses
-      ↓
-CC-Switch 本地路由
-      ↓
-DeepSeek / Kimi Chat Completions
-      ↓
-转换回 Codex Responses
-~~~
+![CC-Switch 本地协议转换流程](/posts/codex-beginner-guide/cc-switch-protocol-routing-handdrawn.png)
 
 所以它不只是“保存几把 Key”，还负责协议转换。
 
